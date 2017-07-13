@@ -1,0 +1,90 @@
+body {
+  background-color: #fff;
+}
+
+
+/* Nav Bar */
+
+.logo {
+  margin-top: 8px;
+}
+
+.navbar-default {
+  background-color: #000;
+  border: none;
+  height: 80px;
+}
+
+.navbar-default .logo {
+  display: inline-block;
+  margin: 0;
+  font-family: 'Black Ops One', cursive;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 2px 2px #333333;
+}
+
+.navbar-brand:hover, .navbar-brand:visited, .navbar-brand:target, .navbar-brand:after, .logo:hover, .logo:visited .logo:active {
+  color: #fff;
+}
+
+#navbar li {
+  display: inline-block;
+  width: 80px;
+}
+
+#navbar li a {
+  display: block;
+  margin: 0 auto;
+  padding: 30px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+#navbar li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
+/* Welcome Page */
+
+.welcome {
+  height: 90vh;
+  padding-top: 35vh;
+  background: url(../images/homepage-background.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.welcome-header {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+}
+
+.welcome-text {
+  color: #fff;
+  font-size: 16px;
+}
+
+.welcome-button {
+  display: block;
+  margin: 20px auto;
+}
+
+
+/* Footer */
+
+footer {
+  display: block;
+  margin: 0 auto;
+  height: 81px;
+  background-color: #000;
+}
+
+#copyright {
+  padding-top: 30px;
+  color: #fff;
+  font-size: 10px;
+}

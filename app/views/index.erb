@@ -1,29 +1,8 @@
-<div class="container">
-  <% Tmdb::Api.key("f58dcae0aa7f4c46378947fd40988e0f") %>
-  <% results = Tmdb::Movie.find("8 mile") %>
+<section class="welcome container-wide">
+  <div class="container">
+    <h2 class="welcome-header">Your movies, at your fingertips.</h2>
+    <p class="welcome-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-  <% results.each do |movie| %>
-
-    <% movie_details = Tmdb::Movie.detail(movie.id) %>
-    <h1><%= movie_details["title"] %></h1>
-    <img src="http://image.tmdb.org/t/p/w185<%= movie_details["poster_path"] %>" alt="">
-    <p><%= movie_details["tagline"] %></p>
-    <h3><%= movie_details["release_date"][0...4] %></h3>
-    <p><%= movie_details["overview"] %></p>
-    <p><%= movie_details["runtime"] %> minutes</p>
-
-    <% unless Tmdb::Movie.casts(movie.id) == nil %>
-      <ul>
-        <% Tmdb::Movie.casts(movie.id)[0...6].each do |actor| %>
-          <li><%= actor["name"] %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% trailer = Tmdb::Movie.trailers(movie.id) %>
-    <% unless trailer["youtube"][0] == nil %>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= trailer["youtube"][0]["source"] %>" frameborder="0" allowfullscreen></iframe>
-    <% end %>
-
-  <% end %>
-</div>
+    <button class="btn btn-primary welcome-button" type="button" name="button">Sign Up Now!</button>
+  </div>
+</section>
