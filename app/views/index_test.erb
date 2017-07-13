@@ -1,6 +1,6 @@
-<div class="container-fluid col-12-xs">
+<div class="container-fluid content">
   <% Tmdb::Api.key("f58dcae0aa7f4c46378947fd40988e0f") %>
-  <% results = Tmdb::Movie.find("pulp fiction") %>
+  <% results = Tmdb::Movie.find("8 mile") %>
 
   <% results.each do |movie| %>
 

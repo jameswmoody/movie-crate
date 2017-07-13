@@ -14,6 +14,7 @@ gem 'rake'
 
 gem 'shotgun', '~>0.9.1'
 gem 'themoviedb'
+gem 'bcrypt'
 
 group :test do
   gem 'shoulda-matchers'

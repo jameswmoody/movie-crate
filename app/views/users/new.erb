@@ -1,0 +1,35 @@
+<section class="container content">
+  <h2>Sign Up!</h2>
+
+  <div class="form-container">
+
+    <div class="errors-container">
+      <% if @errors %>
+        <ul>
+          <%  @errors.each do |error| %>
+            <li class="errors"><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <form class="sign-up" action="/users/new" method="post">
+      <label for="first_name">First Name</label><br>
+      <input class="form-input" type="text" name="user[first_name]"><br>
+
+      <label for="last_name">Last Name</label><br>
+      <input class="form-input" type="text" name="user[last_name]"><br>
+
+      <label for="email">Email</label><br>
+      <input class="form-input" type="text" name="user[email]"><br>
+
+      <label for="password">Password</label><br>
+      <input class="form-input" type="password" name="user[password]"><br>
+
+      <label for="password_confirm">Confirm Password</label><br>
+      <input class="form-input" type="password" name="password_confirm"><br>
+      <br>
+      <input class="btn btn-primary form-button" type="submit" name="" value="Sign Up!">
+    </form>
+  </div>
+</section>
