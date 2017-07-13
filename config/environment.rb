@@ -20,7 +20,6 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
-require 'pry-byebug'
 require 'bcrypt'
 
 # Some helper constants for path-centric logic
