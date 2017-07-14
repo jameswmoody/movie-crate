@@ -42,10 +42,21 @@ end
 
 get '/users/:id/movies/new' do
   Tmdb::Api.key(ENV["TMDB_API_KEY"])
+  user = User.find(current_user.id)
   @movies = []
 
   if params[:search_type] == nil
     @movies = Tmdb::Movie.popular[0...10]
+  else
+    search_results = Tmdb::Movie.find(params[:search])
+
+    search_results.each do |result|
+      @movies << result
+    end
+
+    if @movies.length > 10
+      @movies = @movies[0...10]
+    end
   end
 
   erb :'/movies/new'

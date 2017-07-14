@@ -209,6 +209,7 @@ main:after {
   display: block;
   width: 800px;
   margin: 0 auto;
+  margin-left: 20%;
 }
 
 .search-text {
@@ -234,6 +235,11 @@ main:after {
 
 .add-movie {
   /*float: right;*/
+  margin: 10px;
+}
+
+.saved {
+  display: block;
   margin: 10px;
 }
 

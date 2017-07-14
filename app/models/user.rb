@@ -21,4 +21,14 @@ class User < ActiveRecord::Base
   def authenticate(password)
     self.password == password
   end
+
+  def crate
+    crate = []
+    if movies.any?
+      movies.each do |movie|
+        crate << movie.tmdb_id
+      end
+    end
+    crate
+  end
 end
