@@ -233,12 +233,8 @@ main:after {
 
 /* Add */
 
-.add-movie {
+.add-movie, .delete-movie, .saved {
   /*float: right;*/
-  margin: 10px;
-}
-
-.saved {
   display: block;
   margin: 10px;
 }

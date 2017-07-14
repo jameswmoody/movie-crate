@@ -72,3 +72,19 @@ post '/users/:id/movies/new' do
   user.crate_entries.create(movie_id: saved_movie.id)
   redirect "/users/#{current_user.id}/movies"
 end
+
+get '/users/:id/movies/edit' do
+  Tmdb::Api.key(ENV["TMDB_API_KEY"])
+  user = User.find(current_user.id)
+  @movies = user.movies
+
+  erb :'/movies/edit'
+end
+
+delete '/users/1/movies/delete' do
+  user = User.find(current_user.id)
+  crate_entry = user.crate_entries.where(movie_id: params[:movie_id])[0]
+
+  crate_entry.destroy
+  redirect "/users/#{current_user.id}/movies"
+end
