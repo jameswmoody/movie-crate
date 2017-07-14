@@ -44,17 +44,7 @@
               <% end %>
             </p>
           <% end %>
-
-          <% trailer = Tmdb::Movie.trailers(movie.id) %>
-
-          <% if trailer["youtube"][0] != nil %>
-            <a class="trailer-link" href="https://www.youtube.com/embed/<%= trailer["youtube"][0]["source"] %>">
-              <h4 class="trailer-text">Watch Trailer</h4> <i class="fa fa-film" aria-hidden="true"></i>
-            </a>
-          <% end %>
-
         </div>
-
       </div>
       <% end %>
     <% else %>
