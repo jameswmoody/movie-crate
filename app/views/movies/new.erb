@@ -1,10 +1,10 @@
 <section class="container content">
-  <h2><a class="profile-header" href="/users/<%= current_user.id %>/movies"><%= current_user.first_name %>'s Movies</a></h2>
+  <h2>Add To Your Crate</h2>
 
   <div class="search-container">
-    <i><p class="search-text text-muted">Use this search bar to filter your movies...</p></i>
+    <i><p class="search-text text-muted">Search for a movie to add to your Crate...</p></i>
 
-    <form class="search-form form-horizontal" action="/users/<%= current_user.id %>/movies" method="get">
+    <form class="search-form form-horizontal" action="/users/<%= current_user.id %>/movies/new" method="get">
       <input type="radio" name="search_type" value="title" checked> Title
       <input type="radio" name="search_type" value="actor"> Actor
       <input class="search-field" type="text" name="search" placeholder="i.e 'Pulp Fiction', 'Brad Pitt', or 'batman', 'samuel l jackson">
@@ -15,7 +15,7 @@
   <% if !@movies.empty? %>
     <% @movies.each do |movie| %>
       <div class="movie-details row">
-        <% movie_details = Tmdb::Movie.detail(movie.tmdb_id) %>
+        <% movie_details = Tmdb::Movie.detail(movie.id) %>
         <div class="poster col-md-2">
           <img src="http://image.tmdb.org/t/p/w185<%= movie_details["poster_path"] %>" alt="Poster">
         </div>
@@ -23,25 +23,30 @@
         <div class="details col-md-10">
           <h1 class="movie-title"><%= movie_details["title"] %></h1>
           <h3 class="movie-year">(<%= movie_details["release_date"][0...4] %>)</h3>
+          <form action="/users/<%= current_user.id %>/movies/new" method="post">
+            <input class="add-movie btn btn-primary" type="submit" name="add-movie" value="+ Add to Crate">
+            <input type="hidden" name="movie_id" value="<%= movie.id %>">
+          </form>
           <p class="movie-tagline"><i><%= movie_details["tagline"] %></i></p>
           <p><%= movie_details["overview"] %></p>
           <p class="text-muted"><%= movie_details["runtime"] %> minutes</p>
 
-          <% unless Tmdb::Movie.casts(movie.tmdb_id) == nil %>
+          <% unless Tmdb::Movie.casts(movie.id) == nil %>
             <p>
-              <% Tmdb::Movie.casts(movie.tmdb_id)[0...6].each do |actor| %>
+              <% Tmdb::Movie.casts(movie.id)[0...6].each do |actor| %>
                 <span class="cast-actor"><%= actor["name"] %></span>
               <% end %>
             </p>
           <% end %>
 
-          <% trailer = Tmdb::Movie.trailers(movie.tmdb_id) %>
+          <% trailer = Tmdb::Movie.trailers(movie.id) %>
 
           <% if trailer["youtube"][0] != nil %>
             <a class="trailer-link" href="https://www.youtube.com/embed/<%= trailer["youtube"][0]["source"] %>">
               <h4 class="trailer-text">Watch Trailer</h4> <i class="fa fa-film" aria-hidden="true"></i>
             </a>
           <% end %>
+
         </div>
 
       </div>

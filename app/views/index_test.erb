@@ -1,25 +1,9 @@
 <div class="container-fluid content">
   <% Tmdb::Api.key(ENV["TMDB_API_KEY"]) %>
-  <% results = Tmdb::Movie.find("8 mile") %>
+  <% person = Tmdb::Person.find("brad pitt") %>
 
-  <% results.each do |movie| %>
-    <% movie_details = Tmdb::Movie.detail(movie.id) %>
-    <h1><%= movie_details["title"] %></h1>
-    <img src="http://image.tmdb.org/t/p/w185<%= movie_details["poster_path"] %>" alt="">
-    <p><%= movie.id %></p>
-    <h3><%= movie_details["release_date"][0...4] %></h3>
-    <p><%= movie_details["overview"] %></p>
-    <p><%= movie_details["runtime"] %> minutes</p>
-
-    <% unless Tmdb::Movie.casts(movie.id) == nil %>
-      <p>
-        <% Tmdb::Movie.casts(movie.id)[0...6].each do |actor| %>
-          <%= actor["name"] %>
-        <% end %>
-      </p>
-    <% end %>
-
-    <% trailer = Tmdb::Movie.trailers(movie.id) %>
+  <% person.each do |per| %>
+    <%= per.name %>
 
   <% end %>
 </div>

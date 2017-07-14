@@ -7,7 +7,7 @@ html, body {
 }
 
 
-/* Font */
+/* Fonts */
 
 a {
   color: #333;
@@ -21,6 +21,10 @@ a:hover, a:focus {
 
 .trailer-text {
   display: inline;
+}
+
+.profile-header:hover, .profile-header:focus {
+  text-decoration: none;
 }
 
 
@@ -148,17 +152,17 @@ main:after {
 
 .search {
   background: url(../images/search.png) no-repeat center center;
-  background-size: 50%;
+  background-size: 200px;
 }
 
 .add {
   background: url(../images/add.png) no-repeat center center;
-  background-size: 60%;
+  background-size: 200px;
 }
 
 .edit {
   background: url(../images/edit.png) no-repeat center center;
-  background-size: 50%;
+  background-size: 200px;
 }
 
 .movie-details {
@@ -194,6 +198,10 @@ main:after {
   float: right;
 }
 
+.trailer-link:hover {
+  text-decoration: none;
+}
+
 
 /* Search */
 
@@ -208,13 +216,26 @@ main:after {
 }
 
 .search-field {
-  width: 600px;
-  height: 35px;
+  width: 500px;
+  height: 32px;
   border: solid 1px #cbcbcb;
   border-radius: 5px;
 }
 
 .search-submit {}
+
+.no-movies {
+  text-align: center;
+  color: #777777;
+}
+
+
+/* Add */
+
+.add-movie {
+  /*float: right;*/
+  margin: 10px;
+}
 
 
 /* Form */
