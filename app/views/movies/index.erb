@@ -1,0 +1,50 @@
+<section class="container content">
+  <h2><%= current_user.first_name %>'s Movies</h2>
+
+  <div class="search-container">
+    <i><p class="search-text text-muted">Use this search bar to filter your movies...</p></i>
+
+    <form class="search-form form-horizontal" action="index.html" method="post">
+      <input class="search-field" type="text" name="search" placeholder="i.e 'Pulp Fiction', 'Comedy', or 'Brad Pitt'">
+      <input class="btn btn-primary search-button" type="submit" name="search-submit" value="Search">
+    </form>
+  </div>
+
+
+  <% @movies.each do |movie| %>
+    <div class="movie-details row">
+      <% movie_details = Tmdb::Movie.detail(movie.tmdb_id) %>
+      <div class="poster col-md-2">
+        <img src="http://image.tmdb.org/t/p/w185<%= movie_details["poster_path"] %>" alt="Poster">
+      </div>
+
+      <div class="details col-md-10">
+        <h1 class="movie-title"><%= movie_details["title"] %></h1>
+        <h3 class="movie-year">(<%= movie_details["release_date"][0...4] %>)</h3>
+        <p class="movie-tagline"><i><%= movie_details["tagline"] %></i></p>
+        <p><%= movie_details["overview"] %></p>
+        <p><%= movie_details["runtime"] %> minutes</p>
+
+        <% unless Tmdb::Movie.casts(movie.id) == nil %>
+          <p>
+            <% Tmdb::Movie.casts(movie.id)[0...6].each do |actor| %>
+              <span class="cast-actor"><%= actor["name"] %></span>
+            <% end %>
+          </p>
+        <% end %>
+
+        <% trailer = Tmdb::Movie.trailers(movie.id)["youtube"][0] %>
+
+        <% if trailer != nil %>
+        <%= trailer %>
+          <a class="trailer-link" href="  ">
+            <h4 class="trailer-text">Watch Trailer</h4> <i class="fa fa-film" aria-hidden="true"></i>
+          </a>
+        <% end %>
+
+      </div>
+
+    </div>
+  <% end %>
+
+</section>

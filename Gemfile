@@ -15,6 +15,7 @@ gem 'rake'
 gem 'shotgun', '~>0.9.1'
 gem 'themoviedb'
 gem 'bcrypt'
+gem 'dotenv'
 
 group :test do
   gem 'shoulda-matchers'
@@ -26,4 +27,5 @@ end
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
+  gem 'pry-byebug'
 end

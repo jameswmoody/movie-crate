@@ -1,3 +1,23 @@
 <section class="container content">
   <h2>Welcome, <%= current_user.first_name %>!</h2>
+
+  <div class="row crate-options">
+    <a href="/users/<%= current_user.id %>/movies">
+      <div class="search col-md-4">
+        <h3>Seach Through Your Movies</h3>
+      </div>
+    </a>
+
+    <a href="/users/<%= current_user.id %>/movies/new">
+      <div class="add col-md-4">
+        <h3>Add To Your Crate</h3>
+      </div>
+    </a>
+
+    <a href="/users/<%= current_user.id %>/movies/edit">
+      <div class="edit col-md-4">
+        <h3>Edit Your Crate</h3>
+      </div>
+    </a>
+  </div>
 </section>

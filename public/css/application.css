@@ -7,6 +7,23 @@ html, body {
 }
 
 
+/* Font */
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #333;
+  text-decoration: underline;
+}
+
+.trailer-text {
+  display: inline;
+}
+
+
 /* Nav Bar */
 
 .logo {
@@ -85,7 +102,6 @@ main:after {
   content: "";
   display: block;
   height: 80px;
-  /* the footer's total height */
 }
 
 
@@ -116,6 +132,91 @@ main:after {
 }
 
 
+/* Crate */
+
+.crate-options {
+  margin: 0 auto;
+  padding-top: 15vh;
+}
+
+.search, .add, .edit {
+  text-align: center;
+  height: 40vh;
+  background-color: #cbcbcb;
+  border-radius: 15px;
+}
+
+.search {
+  background: url(../images/search.png) no-repeat center center;
+  background-size: 50%;
+}
+
+.add {
+  background: url(../images/add.png) no-repeat center center;
+  background-size: 60%;
+}
+
+.edit {
+  background: url(../images/edit.png) no-repeat center center;
+  background-size: 50%;
+}
+
+.movie-details {
+  background-color: #EBEBEB;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.movie-details .poster {}
+
+.movie-details .details {
+  padding: 0 50px;
+}
+
+.movie-title {
+  display: inline-block;
+}
+
+.movie-year {
+  display: inline-block;
+}
+
+.cast-actor {
+  background-color: #DEEDFB;
+  padding: 5px;
+  border: solid 1px #C4D1DD;
+  border-radius: 5px;
+  color: #23527C;
+}
+
+.trailer-link {
+  float: right;
+}
+
+
+/* Search */
+
+.search-form {
+  display: block;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.search-text {
+  text-align: center;
+}
+
+.search-field {
+  width: 600px;
+  height: 35px;
+  border: solid 1px #cbcbcb;
+  border-radius: 5px;
+}
+
+.search-submit {}
+
+
 /* Form */
 
 .form-container {
@@ -136,6 +237,11 @@ form {
 .errors {
   color: red;
   font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #3996F8;
+  border: none;
 }
 
 
